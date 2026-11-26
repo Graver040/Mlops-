@@ -1,0 +1,63 @@
+
+group_id: "G156"
+problem_id: "MP265"
+
+data_issues:
+  leaking_column:
+    present: true
+    column: rent_in_signed_agreement
+
+  unit_mixup:
+    present: true
+    column: building_age_yr
+    group_value: Sector East
+    factor: 12
+
+  sentinel_value:
+    present: false
+    column: null
+    value: null
+    count: null
+
+  duplicate_rows:
+    present: false
+    count: null
+
+  stuck_sensor:
+    present: true
+    column: room_area_sqft
+    start_date: "2026-05-02"
+    end_date: "2026-05-22"
+
+  target_typos:
+    present: true
+    count: 14
+
+  spelling_variants:
+    present: true
+    column: furnishing
+    true_levels: 3
+
+tracking:
+  experiment_name: "MP265_PG_Rent"
+  best_run_id: "29d2c0337c33416bbd257682fb17be84"
+  registered_model_name: "MP265_PG_Rent_Model"
+  champion_version: 2
+
+monitoring:
+  psi:
+    distance_to_campus_km: 0.047906
+    room_area_sqft: 0.232188
+    sharing: 0.011108
+    meals_per_day: 0.004858
+    building_age_yr: 0.077254
+    wifi_mbps: 6.679227
+  most_drifted_feature: wifi_mbps
+  mae_by_group:
+    'Sector East': 7429.506507
+    'Sector West': 1725.428376
+    'Market Side': 1721.512706
+  worst_served_group: Sector East
+  mae_v1_on_check: 3922.75
+  mae_v2_on_check: 2790.28
+  decision: promote_v2
